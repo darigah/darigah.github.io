@@ -23,11 +23,14 @@
 	<!-- <link rel="stylesheet" href="css/themes/white-grey.css"> -->
 	<!-- <link rel="stylesheet" href="css/themes/white-red.css"> -->
 	<!-- <link rel="stylesheet" href="css/themes/yellow-black.css"> -->
+        <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet" />
+
 </head>
 <body>
 	<main>
 		<div class="intro">Hi, I'm Arigah!</div>
 		<div class="tagline"> Dev || Code Sometimes || f1 aficionado </div>
+	
 		<!-- Find your icons from here - https://fontawesome.com/icons?d=gallery&s=brands -->
 		<div class="icons-social">
 			<a target="_blank" href="https://github.com/darigah"><i class="fab fa-github"></i></a>
@@ -40,6 +43,28 @@
 			<a target="_blank" href="https://www.behance.net"><i class="fab fa-behance"></i></a>
 			<a target="_blank" href="https://codepen.io"><i class="fab fa-codepen"></i></a>
     </div>
+		<video
+    id="my-video"
+    class="video-js"
+    controls
+    preload="auto"
+    width="640"
+    height="264"
+    poster="MY_VIDEO_POSTER.jpg"
+    data-setup="{}"
+  >
+    <source src="MY_VIDEO.mp4" type="video/mp4" />
+    <source src="MY_VIDEO.webm" type="video/webm" />
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank"
+        >supports HTML5 video</a
+      >
+    </p>
+  </video>
+
+  <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
 	</main>
 </body>
 </html>
