@@ -1,5 +1,21 @@
 /* Typography */
 
+/* Body Styles */
+body {
+  font-family: 'Helvetica', Arial, sans-serif;
+  background-image: url("mich-agiliscc-mountain-road.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Typography */
+html {
+  font-family: 'Roboto', Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
 html {
   font-family: 'Helvetica', Arial, sans-serif;
 }
@@ -163,12 +179,5 @@ p {
 
 .btn:hover {
   background-color: #0056b3;
-}
-
-.approach-section {
-  background-image: url("https://github.com/darigah/darigah.github.io/blob/master/mich-agiliscc-mountain-road.jpg");
-  background-size: cover;
-  background-position: center;
-  padding: 80px 0;
 }
 
