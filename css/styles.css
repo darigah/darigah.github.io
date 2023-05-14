@@ -1,3 +1,9 @@
+/* Typography */
+
+html {
+  font-family: 'Helvetica', Arial, sans-serif;
+}
+
 /* Reset Styles */
 * {
   box-sizing: border-box;
@@ -7,7 +13,7 @@
 
 /* Typography */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', Helvetica;
   font-size: 16px;
   line-height: 1.6;
   color: #333;
