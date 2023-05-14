@@ -164,3 +164,11 @@ p {
 .btn:hover {
   background-color: #0056b3;
 }
+
+.approach-section {
+  background-image: url("https://github.com/darigah/darigah.github.io/blob/master/mich-agiliscc-mountain-road.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0;
+}
+
