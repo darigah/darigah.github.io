@@ -13,15 +13,17 @@ body {
   color: #333;
 }
 
-h1 {
-  font-size: 2.5rem;
+h1, h2 {
   font-weight: bold;
+}
+
+h1 {
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
 
 h2 {
   font-size: 2rem;
-  font-weight: bold;
   margin-bottom: 0.8rem;
 }
 
@@ -87,17 +89,15 @@ p {
   margin-top: 40px;
 }
 
-.main-content .section {
+.section {
   margin-bottom: 40px;
 }
 
-.section-heading {
-  font-size: 2rem;
-  font-weight: bold;
+.section h2 {
   margin-bottom: 20px;
 }
 
-.section-content {
+.section p {
   font-size: 1.2rem;
   line-height: 1.8;
 }
