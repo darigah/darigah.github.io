@@ -1,114 +1,71 @@
-<style>
-		/* Global Styles */
+/* Typography */
 
-		html {
-			font-family: 'Roboto', sans-serif;
-			scroll-behavior: smooth;
-		}
+html {
+	font-family: 'Roboto', sans-serif;
+}
 
-		body {
-			margin: 0;
-			padding: 0;
-			background-color: #f2f2f2;
-			color: #333333;
-			line-height: 1.6;
-		}
+@media (min-width: 576px) {
+	html {
+		font-size: 14px;
+	}
+}
 
-		a {
-			color: #007bff;
-			text-decoration: none;
-		}
+@media (min-width: 768px) {
+	html {
+		font-size: 16px;
+	}
+}
 
-		a:hover {
-			text-decoration: underline;
-		}
+@media (min-width: 992px) {
+	html {
+		font-size: 18px;
+	}
+}
 
-		.container {
-			max-width: 960px;
-			margin: 0 auto;
-			padding: 30px;
-		}
+@media (min-width: 1200px) {
+	html {
+		font-size: 20px;
+	}
+}
 
-		/* Typography */
+.icons-social i {
+	font-size: 3em;
+}
 
-		h1, h2, h3 {
-			font-weight: 700;
-			margin-bottom: 20px;
-		}
+/* Custom Styles */
 
-		h1 {
-			font-size: 36px;
-			line-height: 1.2;
-		}
+main {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	justify-content: center;
+	padding: 0 30px;
+	text-align: center;
+}
 
-		h2 {
-			font-size: 30px;
-		}
+main > .intro {
+	font-family: 'Reem Kufi', sans-serif;
+	font-size: 3.75em;
+	font-weight: 600;
+}
 
-		h3 {
-			font-size: 24px;
-		}
+main > .tagline {
+	font-size: 1.5rem;
+	margin: 1.5rem 0;
+	font-weight: 100;
+}
 
-		p {
-			margin-bottom: 20px;
-		}
+.icons-social i {
+	padding: 10px;
+}
 
-		/* Header */
+.devto {
+	margin-bottom: -0.20rem;
+}
 
-		header {
-			background-color: #ffffff;
-			padding: 20px 0;
-		}
-
-		.brand {
-			font-family: 'Reem Kufi', sans-serif;
-			font-size: 36px;
-			margin: 0;
-		}
-
-		/* Main Content */
-
-		.main {
-			padding: 60px 0;
-			text-align: center;
-		}
-
-		.intro {
-			font-size: 48px;
-			font-weight: 600;
-			margin-bottom: 20px;
-			color: #333333;
-		}
-
-		.tagline {
-			font-size: 24px;
-			margin-bottom: 40px;
-			color: #777777;
-		}
-
-		.icons-social {
-			margin-bottom: 40px;
-		}
-
-		.icons-social a {
-			display: inline-block;
-			margin: 10px;
-			color: #777777;
-			font-size: 30px;
-		}
-
-		.icons-social a:hover {
-			color: #007bff;
-		}
-
-		/* Footer */
-
-		footer {
-			background-color: #333333;
-			color: #ffffff;
-			padding: 20px 0;
-		}
-
-		.footer-text {
-			font-size: 14px;
-			margin: 
+.devto svg {
+	margin-bottom: -0.20rem;
+	margin-left: 0.675rem;;
+	width: 2.65rem;
+	height: 2.65rem;
+}
