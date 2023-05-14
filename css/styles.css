@@ -28,7 +28,9 @@ body {
   color: #333;
 }
 
-h1,
+h1, {
+  font-weight: bold;
+}
 h2 {
   font-weight: bold;
 }
