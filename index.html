@@ -19,68 +19,116 @@
 	<link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet" />
 	
 	<style>
-		body {
+		/* Global Styles */
+
+		html {
 			font-family: 'Roboto', sans-serif;
-			background-color: #f2f2f2;
-			margin: 0;
-			padding: 0;
+			scroll-behavior: smooth;
 		}
 
-		main {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			height: 100vh;
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #f2f2f2;
+			color: #333333;
+			line-height: 1.6;
+		}
+
+		a {
+			color: #007bff;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		.container {
+			max-width: 960px;
+			margin: 0 auto;
+			padding: 30px;
+		}
+
+		/* Typography */
+
+		h1, h2, h3 {
+			font-weight: 700;
+			margin-bottom: 20px;
+		}
+
+		h1 {
+			font-size: 36px;
+			line-height: 1.2;
+		}
+
+		h2 {
+			font-size: 30px;
+		}
+
+		h3 {
+			font-size: 24px;
+		}
+
+		p {
+			margin-bottom: 20px;
+		}
+
+		/* Header */
+
+		header {
+			background-color: #ffffff;
+			padding: 20px 0;
+		}
+
+		.brand {
+			font-family: 'Reem Kufi', sans-serif;
+			font-size: 36px;
+			margin: 0;
+		}
+
+		/* Main Content */
+
+		.main {
+			padding: 60px 0;
+			text-align: center;
 		}
 
 		.intro {
-			font-size: 36px;
-			font-weight: bold;
-			color: #333333;
+			font-size: 48px;
+			font-weight: 600;
 			margin-bottom: 20px;
+			color: #333333;
 		}
 
 		.tagline {
 			font-size: 24px;
-			color: #666666;
 			margin-bottom: 40px;
+			color: #777777;
 		}
 
 		.icons-social {
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			margin-bottom: 40px;
 		}
 
 		.icons-social a {
 			display: inline-block;
-			margin: 0 10px;
-			color: #333333;
-			font-size: 24px;
-			transition: color 0.3s ease;
+			margin: 10px;
+			color: #777777;
+			font-size: 30px;
 		}
 
 		.icons-social a:hover {
-			color: #ff6600;
+			color: #007bff;
 		}
 
-		.video-container {
-			max-width: 640px;
-			margin-top: 40px;
+		/* Footer */
+
+		footer {
+			background-color: #333333;
+			color: #ffffff;
+			padding: 20px 0;
 		}
-	</style>
-</head>
-<body>
-	<main>
-		<div class="intro">Hi, I'm Arigah!</div>
-		<div class="tagline">Dev || Code Sometimes || f1 aficionado</div>
 
-		<div class="icons-social">
-			<a target="_blank" href="https://github.com/darigah"><i class="fab fa-github"></i></a>
-			<a target="_blank" href="https://twitter.com/darigah"><i class="fab fa-twitter"></i></a>
-			<!-- Add the remaining social media icons -->
-
-			<!-- Modify the video source and poster image accordingly -->
-			<div class="video-container">
-				<video id="my-video" class="
+		.footer-text {
+			font-size: 14px;
+			margin: 
