@@ -14,59 +14,73 @@
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="css/themes/grey-white.css">
-	<!-- <link rel="stylesheet" href="css/themes/indigo-white.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/green-white.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/red-white.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/grey-white.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/white-indigo.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/white-blue.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/white-grey.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/white-red.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/yellow-black.css"> -->
-        <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet" />
+	<!-- Add links to other CSS themes as needed -->
+	
+	<link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet" />
+	
+	<style>
+		body {
+			font-family: 'Roboto', sans-serif;
+			background-color: #f2f2f2;
+			margin: 0;
+			padding: 0;
+		}
 
+		main {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+
+		.intro {
+			font-size: 36px;
+			font-weight: bold;
+			color: #333333;
+			margin-bottom: 20px;
+		}
+
+		.tagline {
+			font-size: 24px;
+			color: #666666;
+			margin-bottom: 40px;
+		}
+
+		.icons-social {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.icons-social a {
+			display: inline-block;
+			margin: 0 10px;
+			color: #333333;
+			font-size: 24px;
+			transition: color 0.3s ease;
+		}
+
+		.icons-social a:hover {
+			color: #ff6600;
+		}
+
+		.video-container {
+			max-width: 640px;
+			margin-top: 40px;
+		}
+	</style>
 </head>
 <body>
 	<main>
 		<div class="intro">Hi, I'm Arigah!</div>
-		<div class="tagline"> Dev || Code Sometimes || f1 aficionado </div>
-	
-		<!-- Find your icons from here - https://fontawesome.com/icons?d=gallery&s=brands -->
+		<div class="tagline">Dev || Code Sometimes || f1 aficionado</div>
+
 		<div class="icons-social">
 			<a target="_blank" href="https://github.com/darigah"><i class="fab fa-github"></i></a>
 			<a target="_blank" href="https://twitter.com/darigah"><i class="fab fa-twitter"></i></a>
-			<a target="_blank" href="https://dev.to/darigah"><i class="fab fa-dev"></i></a>
-			<a target="_blank" href="https://stackoverflow.com/story/darigah"><i class="fab fa-stack-overflow"></i></a>
-			<a target="_blank" href="https://www.linkedin.com/in/darigah"><i class="fab fa-linkedin"></i></a>
-			<a target="_blank" href="https://medium.com/@darigah"><i class="fab fa-medium"></i></a>
-			<a target="_blank" href="https://www.freecodecamp.org"><i class="fab fa-free-code-camp"></i></a>
-			<a target="_blank" href="https://www.behance.net"><i class="fab fa-behance"></i></a>
-			<a target="_blank" href="https://codepen.io"><i class="fab fa-codepen"></i></a>
-			
-			<video
-                        id="my-video"
-                        class="video-js"
-                        controls
-                        preload="auto"
-                        width="640"
-                        height="264"
-                        poster="MY_VIDEO_POSTER.jpg"
-                        data-setup="{}"
-                      >
-                        <source src="MY_VIDEO.mp4" type="video/mp4" />
-                        <source src="MY_VIDEO.webm" type="video/webm" />
-                               <p class="vjs-no-js">
-                             
-                                 <a href="https://videojs.com/html5-video-support/" target="_blank"
-                                   >supports HTML5 video</a
-                                 >
-                               </p>
-                             </video>
-                           
-                             <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
-                           			
-                 </div>
-		
-	</main>
-</body>
-</html>
+			<!-- Add the remaining social media icons -->
+
+			<!-- Modify the video source and poster image accordingly -->
+			<div class="video-container">
+				<video id="my-video" class="
