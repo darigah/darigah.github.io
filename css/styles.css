@@ -51,6 +51,42 @@ table {
 	border-spacing: 0;
 }
 
+/* Container to align the boxes */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers the boxes */
+    gap: 12px;               /* Space between boxes */
+    margin-top: 20px;
+}
+
+/* Individual tag box styling */
+.tag-box {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #e0e0e0;
+    
+    /* The "Nice Box" Styling */
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05); /* Very subtle transparent white */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Soft border */
+    border-radius: 6px;                        /* Slightly rounded corners */
+    
+    backdrop-filter: blur(4px);                /* Glass effect */
+    transition: all 0.3s ease;                 /* Smooth hover effect */
+}
+
+/* Hover effect to make it interactive */
+.tag-box:hover {
+    background: rgba(142, 28, 0, 0.4); /* Fades into your theme's red color */
+    border-color: #8e1c00;
+    transform: translateY(-3px);       /* Slight lift on hover */
+    cursor: default;
+}
+
 body {
 	-webkit-text-size-adjust: none;
 }
