@@ -5,233 +5,695 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Douglas Ariga | Core Network & Telco Cloud Engineer</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <link rel="icon" href="favicon.ico" type="image/png" />
+    <!-- Cursor-style font: Geist-like (Inter is very similar and loads from Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
-        rel="stylesheet">
+    <style>
+        /* Cursor-style: dark night background + Geist-like typography */
+        :root {
+            --bg-dark: #0a0a0b;
+            --bg-card: rgba(18, 18, 20, 0.92);
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #fafafa;
+            --text-muted: rgba(250, 250, 250, 0.7);
+            --accent: #fff;
+            --green: #22c55e;
+            --orange: #f97316;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
+        }
 
-    <!-- Icons & CSS -->
-    <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="css/styles.css">
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-dark);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Dark night scenic background (Cursor-style) */
+        .page-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background:
+                linear-gradient(180deg, rgba(10, 10, 11, 0.4) 0%, rgba(10, 10, 11, 0.85) 45%, #0a0a0b 70%),
+                url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80') center/cover no-repeat;
+        }
+
+        .page-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(60, 80, 120, 0.25), transparent),
+                        linear-gradient(180deg, transparent 0%, rgba(10, 10, 11, 0.6) 100%);
+            pointer-events: none;
+        }
+
+        .wrapper {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ========== NAV (Cursor-style) ========== */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        nav .logo {
+            font-weight: 600;
+            font-size: 1.125rem;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        nav .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        nav .btn-download {
+            background: var(--text);
+            color: var(--bg-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        nav .btn-download:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            max-width: 720px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero .ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero .cta-primary {
+            background: var(--text);
+            color: var(--bg-dark);
+        }
+
+        .hero .cta-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        .hero .cta-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .hero .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        /* ========== CLI / EDITOR MOCKUP (Cursor-style) ========== */
+        .cli-mockup {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+        }
+
+        .cli-mockup .title-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem 0.75rem 1.25rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid var(--border);
+            font-size: 0.8125rem;
+            font-weight: 500;
+        }
+
+        .cli-mockup .title-bar .title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cli-mockup .title-bar .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .cli-mockup .title-bar .dot.red { background: #ff5f57; }
+        .cli-mockup .title-bar .dot.yellow { background: #febc2e; }
+        .cli-mockup .title-bar .dot.green { background: #28c840; }
+
+        .cli-mockup .title-bar .get-cursor {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .cli-mockup .content {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            min-height: 380px;
+        }
+
+        @media (max-width: 700px) {
+            .cli-mockup .content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cli-mockup .sidebar {
+            border-right: 1px solid var(--border);
+            padding: 0.75rem 0;
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        .cli-mockup .sidebar-section {
+            padding: 0.5rem 1rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        .cli-mockup .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            border-left: 2px solid transparent;
+        }
+
+        .cli-mockup .sidebar-item.active {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.05);
+            border-left-color: var(--text);
+        }
+
+        .cli-mockup .sidebar-item .badge {
+            font-size: 0.625rem;
+            padding: 0.125rem 0.375rem;
+            border-radius: 4px;
+            background: var(--orange);
+            color: #000;
+            font-weight: 600;
+        }
+
+        .cli-mockup .sidebar-item .badge.green {
+            background: var(--green);
+        }
+
+        .cli-mockup .main-area {
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
+        .cli-mockup .tabs {
+            display: flex;
+            gap: 2px;
+            padding: 0.5rem 0.75rem 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid var(--border);
+            font-size: 0.75rem;
+        }
+
+        .cli-mockup .tabs .tab {
+            padding: 0.4rem 0.75rem;
+            border-radius: 6px 6px 0 0;
+            color: var(--text-muted);
+        }
+
+        .cli-mockup .tabs .tab.active {
+            background: var(--bg-card);
+            color: var(--text);
+        }
+
+        .cli-mockup .editor {
+            flex: 1;
+            padding: 1rem 1.25rem;
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            line-height: 1.6;
+            overflow: auto;
+        }
+
+        .cli-mockup .editor .line {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .cli-mockup .editor .ln {
+            color: var(--text-muted);
+            user-select: none;
+            min-width: 2ch;
+        }
+
+        .cli-mockup .editor .code .keyword { color: #c678dd; }
+        .cli-mockup .editor .code .def { color: #61afef; }
+        .cli-mockup .editor .code .str { color: #98c379; }
+        .cli-mockup .editor .code .num { color: #d19a66; }
+        .cli-mockup .editor .code .comment { color: #5c6370; font-style: italic; }
+        .cli-mockup .editor .code .insert { color: #98c379; }
+        .cli-mockup .editor .code .diff-add { background: rgba(34, 197, 94, 0.15); }
+
+        .cli-mockup .terminal {
+            border-top: 1px solid var(--border);
+            padding: 0.75rem 1.25rem;
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            background: rgba(0, 0, 0, 0.4);
+            color: var(--text-muted);
+        }
+
+        .cli-mockup .terminal .prompt {
+            color: var(--green);
+        }
+
+        .cli-mockup .terminal .cmd {
+            color: var(--text);
+        }
+
+        /* ========== SECTIONS (your content, Cursor-style) ========== */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            width: 100%;
+        }
+
+        section h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        section p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            max-width: 640px;
+            margin: 0 auto 1rem;
+            text-align: center;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag-box {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            padding: 0.4rem 0.75rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: var(--text-muted);
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .tag-box:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.18);
+            color: var(--text);
+        }
+
+        .btn-custom {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.9375rem;
+            text-decoration: none;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .btn-custom:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .icons-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .icons-social a {
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .icons-social a:hover {
+            color: var(--text);
+            transform: translateY(-2px);
+        }
+
+        /* Cards grid */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            font-size: 0.875rem;
+            margin: 0;
+            text-align: center;
+        }
+
+        .card .btn-outline {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.8125rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            color: var(--text);
+            text-decoration: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .card .btn-outline:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- ================= NAVBAR ================= -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Douglas Ariga Migiro</a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
+    <div class="page-bg"></div>
+    <div class="wrapper">
+        <!-- Nav (Cursor-style) -->
+        <nav>
+            <a href="#" class="logo">Douglas Ariga</a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects-section">Projects</a>
+                <a href="#contact">Contact</a>
+                <a href="https://cursor.com/download" class="btn-download" target="_blank" rel="noopener">Download</a>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- ================= HERO ================= -->
-    <section id="home" class="d-flex align-items-center justify-content-center vh-100 text-center">
-        <div class="overlay"></div>
-
-        <div class="container-content">
-
-            <h1 class="display-3 fw-bold animate__animated animate__fadeIn">
-                Where Signals Meet Systems
-            </h1>
-
-            <div class="tag-container animate__animated animate__fadeIn animate__delay-1s">
-                <span class="tag-box"> Core Networks </span>
-                <span class="tag-box"> Telco Cloud </span>
-                <span class="tag-box"> Coding </span>
-                <span class="tag-box"> Philosophy </span>
+        <!-- Hero (Cursor-style) -->
+        <section class="hero" id="home">
+            <h1>Where signals meet systems.</h1>
+            <p class="sub">Core networks, telco cloud, and automation—built to run quietly at scale.</p>
+            <div class="ctas">
+                <a href="#projects-section" class="cta cta-primary">View my work</a>
+                <a href="#contact" class="cta cta-secondary">Get in touch →</a>
             </div>
 
-            <!-- Animated Wave Art -->
-            <img src="images/coverart.png" alt="Optimization Wave Art" class="hero-wave" />
-
-            <div class="mt-4">
-                <a href="#projects"
-                    class="btn btn-gradient btn-lg me-2 btn-custom animate__animated animate__fadeIn animate__delay-3s">
-                    View My Work
-                </a>
-
-            </div>
-
-            <div class="icons-social mt-5 animate__animated animate__fadeIn animate__delay-4s">
-                <a target="_blank" href="https://github.com/darigah" class="text-white mx-2 fs-3"><i
-                        class="fab fa-github"></i></a>
-                <a target="_blank" href="https://dev.to/darigah" class="text-white mx-2 fs-3"><i
-                        class="fab fa-dev"></i></a>
-                <a target="_blank" href="https://stackoverflow.com/story/darigah" class="text-white mx-2 fs-3"><i
-                        class="fab fa-stack-overflow"></i></a>
-                <a target="_blank" href="https://www.linkedin.com/in/darigah" class="text-white mx-2 fs-3"><i
-                        class="fab fa-linkedin"></i></a>
-                <a target="_blank" href="https://medium.com/@darigah" class="text-white mx-2 fs-3"><i
-                        class="fab fa-medium"></i></a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ================= ABOUT ================= -->
-    <section id="about" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">About Me</h2>
-
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="lead">
-                        I work on the parts of telecom networks you only notice when they fail, and my job is to make
-                        sure you never notice them.
-                        I enjoy turning messy infrastructure into calm, scalable systems, automating the boring parts,
-                        and pretending sports isn’t just applied physics with egos.
-                        I like building things that scale quietly and work loudly.
-                    </p>
-                </div>
-
-                <div class="col-md-6 text-center">
-                    <img src="profile-placeholder.jpg" alt="Douglas Arigah"
-                        class="img-fluid rounded-circle profile-img">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= PROJECTS ================= -->
-    <section id="projects" class="py-5 bg-dark text-white">
-        <div class="container">
-            <h2 class="text-center mb-5">Projects</h2>
-
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card project-card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-network-wired fa-3x mb-3"></i>
-                            <h5 class="card-title">Core Network </h5>
-                            <p class="card-text">
-                                Core network architectures for high-speed connectivity
-                            </p>
-                            <a href="#" class="btn btn-outline-light btn-sm">Learn More</a>
-                        </div>
+            <!-- CLI / Editor mockup (Cursor-style) -->
+            <div class="cli-mockup">
+                <div class="title-bar">
+                    <div class="title">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
                     </div>
                 </div>
-
-                <div class="col-md-4">
-                    <div class="card project-card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-cloud fa-3x mb-3"></i>
-                            <h5 class="card-title">Telco Cloud </h5>
-                            <p class="card-text">
-                                Kubernetes-based telco cloud
-                            </p>
-                            <a href="#" class="btn btn-outline-light btn-sm">Learn More</a>
+                <div class="content">
+                    <div class="sidebar">
+                        <div class="sidebar-section">In Progress</div>
+                        <div class="sidebar-item active">
+                            <span class="badge">4</span>
+                            Core Network Design
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="badge">2</span>
+                            Telco Cloud Automation
+                        </div>
+                        <div class="sidebar-section">Ready for Review</div>
+                        <div class="sidebar-item">
+                            <span class="badge green">2</span>
+                            Scripts &amp; Tooling
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="badge green">1</span>
+                            Documentation
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card project-card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-code fa-3x mb-3"></i>
-                            <h5 class="card-title">Automation </h5>
-                            <p class="card-text">
-                                Scripts to automate network tasks
-                            </p>
-                            <a href="#" class="btn btn-outline-light btn-sm">Learn More</a>
+                    <div class="main-area">
+                        <div class="tabs">
+                            <span class="tab active">train_model.py</span>
+                            <span class="tab">run_experiment.py</span>
+                            <span class="tab">config.yaml</span>
+                        </div>
+                        <div class="editor">
+                            <div class="line">
+                                <span class="ln">1</span>
+                                <span class="code"><span class="keyword">import</span> torch</span>
+                            </div>
+                            <div class="line">
+                                <span class="ln">2</span>
+                                <span class="code"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span>
+                            </div>
+                            <div class="line">
+                                <span class="ln">3</span>
+                                <span class="code"></span>
+                            </div>
+                            <div class="line">
+                                <span class="ln">4</span>
+                                <span class="code"><span class="keyword">def</span> <span class="def">train_model</span>(epochs=<span class="num">1</span>, lr=<span class="num">1e-3</span>):</span>
+                            </div>
+                            <div class="line diff-add">
+                                <span class="ln">5</span>
+                                <span class="code"><span class="comment"># Seed for reproducibility</span></span>
+                            </div>
+                            <div class="line diff-add">
+                                <span class="ln">6</span>
+                                <span class="code">    torch.<span class="def">manual_seed</span>(<span class="num">42</span>)</span>
+                            </div>
+                            <div class="line">
+                                <span class="ln">7</span>
+                                <span class="code">    model = <span class="def">MLP</span>().<span class="def">to</span>(device)</span>
+                            </div>
+                            <div class="line">
+                                <span class="ln">8</span>
+                                <span class="code">    <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="def">range</span>(epochs):</span>
+                            </div>
+                            <div class="line">
+                                <span class="ln">9</span>
+                                <span class="code">        <span class="keyword">print</span>(<span class="str">f"epoch {epoch+1}: acc={acc:.3f}"</span>)</span>
+                            </div>
+                            <div class="line">
+                                <span class="ln">10</span>
+                                <span class="code">    <span class="keyword">return</span> model</span>
+                            </div>
+                        </div>
+                        <div class="terminal">
+                            <span class="prompt">$</span> <span class="cmd">cursor agent --task "Add mixed precision and LR scheduling"</span><br>
+                            <span class="prompt">→</span> GPT-5.2 &nbsp;&nbsp;/ for commands · @ for files
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ================= CONTACT ================= -->
-    <section id="contact" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Get in Touch</h2>
+        <!-- About -->
+        <section id="about">
+            <h2>About me</h2>
+            <p>I work on the parts of telecom networks you only notice when they fail—my job is to make sure you never notice them. I enjoy turning messy infrastructure into calm, scalable systems and building things that scale quietly and work loudly.</p>
+            <div class="tag-container">
+                <span class="tag-box">Core Networks</span>
+                <span class="tag-box">Telco Cloud</span>
+                <span class="tag-box">Coding</span>
+                <span class="tag-box">Automation</span>
+            </div>
+            <div style="margin-top: 1.5rem;">
+                <a href="#projects-section" class="btn-custom">View my work</a>
+            </div>
+            <div class="icons-social">
+                <a href="https://github.com/darigah" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+                <a href="https://www.linkedin.com/in/darigah" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+                <a href="https://dev.to/darigah" target="_blank" rel="noopener" aria-label="Dev">dev</a>
+                <a href="https://medium.com/@darigah" target="_blank" rel="noopener" aria-label="Medium">M</a>
+            </div>
+        </section>
 
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <form>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-gradient btn-lg w-100">
-                            Send Message
-                        </button>
-                    </form>
+        <!-- Projects -->
+        <section id="projects-section">
+            <h2>Projects</h2>
+            <p>Core network, telco cloud, and automation work.</p>
+            <div class="cards">
+                <div class="card">
+                    <h3>Core Network</h3>
+                    <p>Core network architectures for high-speed connectivity.</p>
+                    <a href="#" class="btn-outline">Learn more</a>
+                </div>
+                <div class="card">
+                    <h3>Telco Cloud</h3>
+                    <p>Kubernetes-based telco cloud.</p>
+                    <a href="#" class="btn-outline">Learn more</a>
+                </div>
+                <div class="card">
+                    <h3>Automation</h3>
+                    <p>Scripts to automate network tasks.</p>
+                    <a href="#" class="btn-outline">Learn more</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="bg-dark text-white text-center py-3">
-        <p class="mb-0">&copy; 2026 aridaggy@gmail.com. All rights reserved </p>
-    </footer>
+        <!-- Contact -->
+        <section id="contact">
+            <h2>Get in touch</h2>
+            <p>Drop a line for collaboration or questions.</p>
+            <form style="max-width: 420px; margin: 2rem auto 0;">
+                <input type="text" placeholder="Name" required style="width:100%;padding:0.75rem 1rem;margin-bottom:0.75rem;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:inherit;font-size:0.9375rem;">
+                <input type="email" placeholder="Email" required style="width:100%;padding:0.75rem 1rem;margin-bottom:0.75rem;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:inherit;font-size:0.9375rem;">
+                <textarea placeholder="Message" rows="4" required style="width:100%;padding:0.75rem 1rem;margin-bottom:1rem;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:inherit;font-size:0.9375rem;resize:vertical;"></textarea>
+                <button type="submit" class="cta cta-primary" style="width:100%;cursor:pointer;border:none;">Send message</button>
+            </form>
+        </section>
 
-    <!-- ================= SCRIPTS ================= -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+        <footer>
+            <p class="mb-0">© 2026 Douglas Ariga. All rights reserved.</p>
+        </footer>
+    </div>
 
     <script>
-        // Smooth scrolling
-        document.querySelectorAll('a.nav-link').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href'))
-                    .scrollIntoView({ behavior: 'smooth' });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
         });
-
-        // Hero Wave Animation
-        anime.timeline()
-            .add({
-                targets: '.hero-wave',
-                opacity: [0, 1],
-                scale: [0.97, 1],
-                duration: 1200,
-                easing: 'easeOutExpo'
-            })
-            .add({
-                targets: '.hero-wave',
-                translateY: [
-                    { value: -8, duration: 2500 },
-                    { value: 8, duration: 2500 }
-                ],
-                translateX: [
-                    { value: -6, duration: 4000 },
-                    { value: 6, duration: 4000 }
-                ],
-                easing: 'easeInOutSine',
-                direction: 'alternate',
-                loop: true
-            });
     </script>
-
 </body>
 
 </html>
